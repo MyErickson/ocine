@@ -1,0 +1,41 @@
+.film-container{
+    margin: 0em 6em;
+    background-color: white;
+    min-height: 100vh;
+    img{
+      width: 18em;
+      height: 30em;
+      margin: 1em;
+      border-radius: 10px;
+  }
+  img:hover{
+      cursor: pointer;
+      margin: 0em;
+      width: 19em;
+      height: 31em;
+      transition: 300ms
+  
+  }
+}
+
+.components-layout-demo-custom-trigger .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  #components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
+  }
+  
+  .components-layout-demo-custom-trigger .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  }
+  .anticon{
+    margin-left: 1em;
+  }
+

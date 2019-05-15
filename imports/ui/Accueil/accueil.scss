@@ -1,0 +1,53 @@
+.acceuil-container{
+    margin: 0em 6em;
+    background-color:white;
+}
+
+.acceuil-card{
+    display: flex !important;
+    flex-wrap: wrap;
+    margin: 2em 4em;
+    margin-bottom: 0em;
+    padding: 0em 7em;
+    // padding-left:8em; 
+        img{
+            width: 18em;
+            height: 30em;
+            margin: 1em;
+            border-radius: 10px;
+        }
+        img:hover{
+            cursor: pointer;
+            margin: 0em;
+            width: 19em;
+            height: 31em;
+            transition: 300ms
+
+        }
+}
+.acceuil-nav-EnCours{
+    padding-top: 3em;
+    margin: 0em 5em;
+    padding-left: 5em;
+    span{
+        margin: 0em 1em; 
+        font-size: 2em;
+    }
+    span:hover{
+        color: rgb(61, 179, 214);
+        cursor: pointer;
+    }
+}
+.acceuil-nav-prochainement{
+    padding-top: 3em;
+    margin: 0em 5em;
+    padding-left: 5em;
+    span{
+        margin: 0em 1em; 
+        font-size: 2em;
+    }
+    span:hover{
+        color: rgb(61, 179, 214);
+        cursor: pointer;
+    }
+}

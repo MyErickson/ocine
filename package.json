@@ -1,0 +1,32 @@
+{
+  "name": "ocine",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.4",
+    "antd": "^3.16.2",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
+    "bulma": "^0.7.4",
+    "meteor-node-stubs": "^0.4.1",
+    "node-sass": "^4.11.0",
+    "rbx": "^2.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "slug": "^1.1.0"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}

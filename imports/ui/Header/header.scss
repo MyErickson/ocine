@@ -1,0 +1,32 @@
+.header-app{
+  // https://media.joa.fr/dynmed/51/24-9/1920/cinema-casino-joa-gerardmer-f-gury.jpeg
+  background-image: url('https://fotomelia.com/wp-content/uploads/edd/2015/05/cin%C3%A9ma-film-projecteur-projection-vid%C3%A9o-n%C3%A9gatif-1560x931.jpg');
+  background-position: center;
+  background-size: cover;
+  Button{
+    background-color: rgba(18, 214, 67,0.9) !important;
+    color: black !important;
+    width: 8em;
+  
+    
+   
+  }
+  Button:hover{
+    background-color: rgb(0, 255, 191) !important;
+  }
+
+}
+.header-title{
+    display: flex;
+    justify-content: space-between;
+    padding: 3em 1em;
+   
+}
+
+.title{
+  font-size: 3em;
+  font-weight: bold;
+  color: rgb(240, 10, 10);
+  margin-left: 1em;
+}
+

@@ -1,0 +1,42 @@
+
+.movie-container{
+margin: 0em 6em;
+background-color:white;
+min-height: 100vh;
+text-align: center;
+    .movie-input{
+        font-size:3em;
+
+    }
+    .search{
+        width: 30%; 
+
+    }
+    .movie-card{
+        width: 80%;
+        margin:0em !important;
+        margin-right: 0em !important;
+        margin-left: 10em !important;
+        padding: 4em 8em;
+    } 
+    .media-left:hover{
+        cursor:pointer;
+    } 
+    .videoDetail{ 
+        h1{
+            font-size: 3em;
+        }
+        .add{
+            font-size: 2em;
+        }
+        .add:hover{
+            cursor:pointer;
+        }
+    }
+    .add-button{
+        background-color: rgb(60, 221, 11);
+    }
+ }
+
+ 
+
