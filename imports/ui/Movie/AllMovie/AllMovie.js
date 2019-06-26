@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import ShowMovie from './ShowMovie';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Movie } from '../../../api/Movie';
-
+import Error from './../../Error/Error'
 
 
 import {genres} from '../../../data/dataAddMovie';
@@ -24,6 +24,9 @@ export class AllMovie extends Component {
         showMovie:[],
         moviesSortie:[],
       };
+      componentDidMount(){
+        this.setState({showMovie:this.props.allMovie})
+      }
 
       toggle = () => {
         this.setState({
@@ -51,7 +54,7 @@ export class AllMovie extends Component {
 
   render() {
   
- 
+
     return (
         <Layout className='film-container'>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
@@ -109,7 +112,9 @@ export class AllMovie extends Component {
               minHeight: 280,
             }}
           >
-           <ShowMovie movies={ this.state.showMovie <= 0 ? this.props.allMovie : this.state.showMovie}/>
+             { this.state.showMovie.length > 0 ? <ShowMovie movies={  this.state.showMovie}/> : <Error type='Genres' />} 
+             
+          
           </Content>
         </Layout>
       </Layout>

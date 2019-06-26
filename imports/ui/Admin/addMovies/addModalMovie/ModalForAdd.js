@@ -119,7 +119,7 @@ class ModalForAdd extends Component  {
               onOk={evt=>this.handleSubmit(evt,value)}
               onCancel={this.showModal}
               okText="Add"
-              
+          
             >
         
           <DetailModal 

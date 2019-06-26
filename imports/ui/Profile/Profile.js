@@ -50,35 +50,66 @@ class Profile extends Component {
 
 
     }
+  
+ 
     onClickRegister =()=>{
         const {
             prenom, nom , ville, pays ,message,
            birthday, website , email , phoneNumber , showInput
         } = this.state
-  
-        Profil.insert({
-                _id:Meteor.userId(),
-                prenom,
-                nom,
-                ville,
-                pays,
-                message,
-                birthday,
-                website,
-                email,
-                phoneNumber,
-                showInput
+        if((Profil.find({_id:Meteor.userId()}).fetch()).length === 0){
+          console.log('insert');
+          Profil.insert(
+           {  _id:Meteor.userId(),
+              prenom,
+              nom,
+              ville,
+              pays,
+              message,
+              birthday,
+              website,
+              email,
+              phoneNumber,
+              showInput
+            }
+            )
+        }else{
+          console.log('update');
+          Profil.update(
+            {_id:Meteor.userId()},{$set:{
+              prenom,
+              nom,
+              ville,
+              pays,
+              message,
+              birthday,
+              website,
+              email,
+              phoneNumber,
+              showInput,
+              type: 'user'
+            }
+            }
+          )
         }
-        )
+       
+        
+
+
+        this.onClickCancel()
     }
 
   onClickModify = () =>{
+
       this.setState({ showInput:true })
   }
 
   onChange =(evt)=> {
       const { name , value } = evt.target;
       this.setState({ [name]: value})
+  }
+  onClickCancel= ()=>{
+    this.setState({ showInput:false})
   }
 
   render() {
@@ -87,7 +118,9 @@ class Profile extends Component {
          birthday, website , email , phoneNumber , showInput
       } = this.state
 
-
+      const dataProfile =  Profil.find({_id:Meteor.userId()}).fetch()
+   console.log(prenom)
+   
     return (
 
       
@@ -103,31 +136,31 @@ class Profile extends Component {
           <Row>
             <Col span={12}>
               <DescriptionItem title="Prenom" content={ 
-                  showInput ? <Input name="prenom" value={prenom} onChange={this.onChange} placeholder='prénom'/> : prenom } /> 
+                  showInput ? <Input name="prenom" value={prenom === ''? dataProfile[0].prenom :prenom} onChange={this.onChange} placeholder='prenom' /> : dataProfile[0] && dataProfile[0].prenom } /> 
             </Col>
             <Col span={12}>
               <DescriptionItem title="Nom" content={
-                  showInput ? <Input name="nom" value={nom} onChange={this.onChange} placeholder='nom'/>  :nom} />
+                  showInput ? <Input name="nom" value={nom === ''? dataProfile[0].nom : nom} onChange={this.onChange} placeholder='nom'/>  : dataProfile[0] && dataProfile[0].nom } />
             </Col>
           </Row>
           <Row>
             <Col span={12}>
               <DescriptionItem title="Ville" content={
-                  showInput ? <Input name="ville" value={ville} onChange={this.onChange} placeholder='ville'/> : ville} />
+                  showInput ? <Input name="ville" value={ville === ''? dataProfile[0].ville : ville} onChange={this.onChange} placeholder='ville'/> : dataProfile[0] && dataProfile[0].ville } />
             </Col>
             <Col span={12}>
               <DescriptionItem title="Pays" content={
-                  showInput ? <Input name="pays" value={pays} onChange={this.onChange} placeholder='pays'/> : pays} />
+                  showInput ? <Input name="pays" value={pays === ''? dataProfile[0].pays: pays} onChange={this.onChange} placeholder='pays'/> : dataProfile[0] && dataProfile[0].pays } />
             </Col>
           </Row>
           <Row>
             <Col span={12}>
               <DescriptionItem title="Birthday" content={
-                  showInput ? <Input name="birthday" value={birthday} onChange={this.onChange} placeholder='Birthday'/> : birthday} />
+                  showInput ? <Input name="birthday" value={birthday === ''? dataProfile[0].birthday: birthday}  onChange={this.onChange} placeholder='Birthday'/> : dataProfile[0] && dataProfile[0].birthday } />
             </Col>
             <Col span={12}>
               <DescriptionItem title="Website" content={
-                  showInput ? <Input name="website" value={website} onChange={this.onChange} placeholder='username'/> : website} />
+                  showInput ? <Input name="website" value={website === ''? dataProfile[0].website: website} onChange={this.onChange} placeholder='username'/> : dataProfile[0] && dataProfile[0].website } />
             </Col>
           </Row>
         
@@ -138,12 +171,12 @@ class Profile extends Component {
           <Row>
             <Col span={12}>
               <DescriptionItem title="Email" content={
-                  showInput ? <Input name="email" value={email} onChange={this.onChange} placeholder='@Mymail'/> : email} />
+                  showInput ? <Input name="email" value={email === ''? dataProfile[0].email: email} onChange={this.onChange} placeholder='@Mymail'/> : dataProfile[0] && dataProfile[0].email } />
             </Col>
             <Col span={12}>
               <DescriptionItem title="Phone Number" content={
                 showInput ? 
-                <Input name="phoneNumber" value={phoneNumber} onChange={this.onChange} placeholder='01-23-45-67-89'/> : phoneNumber
+                <Input name="phoneNumber" value={phoneNumber === ''? dataProfile[0].phoneNumber : phoneNumber} onChange={this.onChange} placeholder='01-23-45-67-89'/> : dataProfile[0] && dataProfile[0].phoneNumber 
             } />
             </Col>
           </Row>
@@ -152,7 +185,7 @@ class Profile extends Component {
             <Col span={24}>
               <DescriptionItem
                 title="Message"  
-                content={showInput ?  <Input value={message} onChange={this.onChange} placeholder='message'/> : message}
+                content={showInput ?  <Input name="message" value={message === ''? dataProfile[0].message : message} onChange={this.onChange} name="message"/> : dataProfile[0] && dataProfile[0].message }
               />
             </Col>
           </Row>
@@ -168,9 +201,13 @@ class Profile extends Component {
               textAlign: 'right',
             }}
           >
-            <Button onClick={this.onClickModify} style={{ marginRight: 8 }}>
+            { !this.state.showInput ?  <Button onClick={this.onClickModify} style={{ marginRight: 8 }}>
               Modifier
-            </Button>
+            </Button>: <Button onClick={this.onClickCancel} style={{ marginRight: 8 }}>
+              Annuler
+            </Button> }
+           
+           
             <Button onClick={this.onClickRegister} type="primary">
               Enregistrer
             </Button>
@@ -183,6 +220,8 @@ class Profile extends Component {
 
 export default  withTracker (()=>{
     return {
-        currentUser: Meteor.user()
+        currentUser: Meteor.user(),
+  
+       
     }
 })(Profile)

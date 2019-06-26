@@ -1,0 +1,144 @@
+.container-detailMovie{
+    margin: 0em 6em;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    .ant-layout-header{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        background-color: none;
+        background-size: 80%;
+        background-position: right;
+        background-repeat: no-repeat;
+        box-shadow: inset 35em -12em 20em 10em rgb(29, 28, 28) ;
+        height: 100%;
+        width: 100%;
+        padding: 0em !important;
+        height: 800px;
+        color:white
+    }
+    .detail-title{
+    font-weight: 900;
+    font-size: 3.125rem;
+    line-height: 3.5rem;
+    margin-bottom: 1em;
+    margin-top: .5rem;
+    padding-left: 0.5em
+    }
+    .detail-description{
+        display:-webkit-box;
+        width: 50%;
+        height: 8.01rem;
+        font-size: 1.125rem;
+        line-height: 1.78;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+    }
+    .detail-genre{
+        font-weight: 800;
+    }
+    .detail-genre,.detail-description,.detail-button{
+        padding-left: 2em;
+
+    }
+
+    .detail-button-BA,.detail-button-seance{
+        min-width: 13rem;
+        min-height: 3rem;
+        border-radius: 50px;
+        margin:0.5em;
+        font-weight: 700;
+        width: 15%
+    }
+    .detail-button-seance{
+        background-color: rgb(235, 198, 96)!important;
+        border-color:  rgb(235, 198, 96) !important;
+        color:black;
+      
+    }
+    .detail-button-seance:hover{
+        background-color: rgba(235, 198, 96,0.6) !important;
+    }
+    .detail-button-BA{
+        color: #fff;
+        background-color: rgba(255,255,255,.15) !important;
+        box-shadow: 0 0.3125rem 0.625rem 0 rgba(0,0,0,.15);
+        border-color: rgba(255,255,255,.15) ;
+      
+    }
+    .detail-button-BA:hover{
+        background-color: rgba(255,255,255,.3) !important;
+    }
+
+    .anticon-clock-circle{
+        font-size: 1.5em;
+    }
+
+
+    .detail-content{
+        height: 20rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        box-shadow: 0 0.265rem 1.25rem 0 rgba(0,0,0,.02);
+        background-color: #fff;
+    }
+    .detail-content-titre{
+        text-align: center;
+        font-weight: 800;
+        font-size: 3.5em;
+        color:black
+    }
+    .detail-content-text{
+        font-weight: 600;
+        font-size: 2em;
+        margin-left:2em;
+        color:black;
+    }
+    .ant-breadcrumb{
+        font-size: 3em !important;
+        color:black ;
+        margin-left:1.2em;
+    }
+    .detail-jour-title{
+        color:black;
+    }
+    .detail-jour-title:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+   
+    .detail-horaire{
+        display:flex;
+        .detail-heures{
+            border: 1px solid black;
+            margin: 1em;
+            color:black;
+            font-size: 2em;
+            padding:0em 1em;
+            box-shadow: 0 0 0 0.0625rem #d0d0d0, 0 0.5rem 1rem 0 rgba(0,0,0,.05);
+            transition: .3s;
+            border-radius: .375rem;
+        }
+        .detail-heures:hover{
+            cursor: pointer;
+            padding: 0em 1.2em !important;
+            transition: .1s;
+        }
+    }
+   
+    
+}
+.detail-video{
+    width: 100%;
+    height: 50em;
+}
+.modal-detail{
+    .ant-modal-body{
+        padding: 0em !important;
+        height: 50em;
+        
+    }
+}

@@ -12,8 +12,8 @@ function SearchMovie({handleSearch}) {
         className="search"
         placeholder="taper le nom d'un film"
         onChange={evt => handleSearch(evt)}
-     
-        enterButton
+        allowClear
+
         />
     </div>
   )

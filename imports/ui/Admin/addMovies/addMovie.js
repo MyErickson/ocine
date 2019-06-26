@@ -16,7 +16,7 @@ export const movieContext = React.createContext({
 const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&append_to_response=images"
 const API_KEY = "api_key=6f3d7f606944b80a498c20a58177bead";
 
-class  Movie extends Component {
+class  AddMovie extends Component {
     state = {
         addMovie:'',
         currentMovie:{},
@@ -115,7 +115,7 @@ class  Movie extends Component {
       
         <div className='movie-input'>Recherche d'un film à ajouter </div>
        
-        <SearchMovie handleSearch={this.handleSearch}/>
+        <SearchMovie handleSearch={this.handleSearch} fonction='ajouter'/>
         <div className="row movie-card">
           <div className="col-md-8">
           {this.state.currentMovie.videoId && 
@@ -143,5 +143,5 @@ class  Movie extends Component {
 }
 }
 
-export default Movie
+export default AddMovie
 

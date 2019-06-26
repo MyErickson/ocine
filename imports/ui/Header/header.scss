@@ -3,23 +3,25 @@
   background-image: url('https://fotomelia.com/wp-content/uploads/edd/2015/05/cin%C3%A9ma-film-projecteur-projection-vid%C3%A9o-n%C3%A9gatif-1560x931.jpg');
   background-position: center;
   background-size: cover;
+  height: 10em;
   Button{
-    background-color: rgba(18, 214, 67,0.9) !important;
+    background-color: rgb(235, 187, 96)!important;
     color: black !important;
     width: 8em;
+  
   
     
    
   }
   Button:hover{
-    background-color: rgb(0, 255, 191) !important;
+    background-color:  rgba(235, 198, 55,0.6)!important;
   }
 
 }
 .header-title{
     display: flex;
     justify-content: space-between;
-    padding: 3em 1em;
+    padding: 0.3em 1em;
    
 }
 

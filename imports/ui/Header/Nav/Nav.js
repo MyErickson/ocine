@@ -1,6 +1,6 @@
 import React , { Component } from 'react'
 import PropTypes from 'prop-types'
-
+import {Profil} from './../../../api/Profil'
 import Profile from '../../Profile/Profile';
 
 //router
@@ -31,7 +31,15 @@ class Nav extends Component {
 
 
   render(){
-
+    const user = Profil.find({_id: Meteor.userId()}).fetch()
+    
+    var type =false;
+   
+    if(user.length > 0){
+           type = user[0].type
+          
+    }
+   
     return (
            
       <Navbar>
@@ -40,10 +48,12 @@ class Nav extends Component {
           <Navbar.Segment align="start">
             <NavLink exact to="/"><span className="navbar-item" >ACCUEIL</span></NavLink>
             <NavLink exact to="/films"><span className="navbar-item">FILM</span></NavLink>
-            <NavLink exact to="/abonnement"><span className="navbar-item">ABONNEMENT</span></NavLink>
             <span className="navbar-item" onClick={()=>this.showDrawer()}>PROFIL</span>
-            <Profile onClose={this.onClose} visible={this.state.visible} showDrawer={this.state.showDrawer}/>
-            <NavLink exact to="/admin"><span className="navbar-item">ADMIN</span></NavLink>
+            { Meteor.userId() && <Profile onClose={this.onClose} visible={this.state.visible} showDrawer={this.state.showDrawer}/>}
+            {  Meteor.userId() && type ==="admin" && <>
+               <NavLink exact to="/admin"><span className="navbar-item">ADMIN</span></NavLink>
+            </> }
+           
           </Navbar.Segment>
           <Navbar.Segment align="end">
             <Navbar.Item>

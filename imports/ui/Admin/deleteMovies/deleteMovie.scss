@@ -1,0 +1,60 @@
+.delete-card{
+    display: flex !important;
+    flex-wrap: wrap;
+    margin: 2em 4em;
+    margin-bottom: 0em;
+    padding: 0em 7em;
+    // padding-left:8em; 
+        .find-img{
+            width: 20em;
+        }
+     img{
+            width: 18em;
+            height: 30em;
+            margin: 1em;
+            border-radius: 10px;
+            transition: 300ms
+        }
+        img:hover{
+            cursor: pointer;
+            margin: 0em;
+            width: 19em;
+            height: 31em;
+            transition: 300ms
+
+        }
+}
+
+.findMovie{
+    margin-top:2em;
+}
+.button-delete{
+    z-index:1;
+    bottom:50%
+}
+
+.ant-popover-inner  {
+    width: 18em !important;
+}
+
+.ant-popover-message-title{
+    text-align: center !important
+}
+
+.layout-modal-modif{
+    button{
+        margin:0.5em;
+        
+    }
+    .ant-layout-footer{
+        text-align: right;
+        padding: 0em !important;
+        padding-top: 24px !important;
+    }
+    input{
+        margin:0.5em 0em;
+    }
+    TextArea{
+        margin:0.5em 0em;
+    }
+}
