@@ -15,7 +15,7 @@
     "bulma": "^0.7.4",
     "indexof": "0.0.1",
     "meteor-node-stubs": "^0.4.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "rbx": "^2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
