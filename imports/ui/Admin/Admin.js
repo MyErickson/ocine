@@ -49,7 +49,7 @@ class AddArticle extends Component {
           </Menu.Item>
           <Menu.Item key="2 "  onClick={this.handleModifContent('delete')}>
           <Icon type="edit" theme="filled" style={{ fontSize: '20px'}}/>
-            <span>Modifier/Supprimer</span>
+            <span>Modifier/Supp</span>
           </Menu.Item>
         </Menu>
       </Sider>
